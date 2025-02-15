@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Task Management</title>
+</head>
+<body>
+    <header class="w-full flex justify-center font-bold text-3xl mt-5 mb-10"><h1>Task Management</h1></header>
+    <main class="w-full flex justify-center gap-40">
+        <div>
+            <h2 class="font-bold text-2xl mb-5">Add Task</h2>
+            <form action="" class="flex flex-col gap-1">
+                <label for="taskName" class="font-bold">Task Name</label>
+                <input type="text" required id="taskName" placeholder="Enter Task Name" class="border border-black-500 rounded-md p-1 pl-2 w-[250px]">
+                <p id="errorNameMessage" class="text-red-500 mb-2 text-sm hidden">Invalid Task Name!!!</p>
+                <label for="date" class="font-bold">Choose Date</label>
+                <input type="date" required id="date" placeholder="Select Date" class="border border-black-500 rounded-md p-1 pl-2">
+                <p id="errorDateMessage" class="text-red-500 mb-2 text-sm hidden">Invalid Date!!!</p>
+                <label for="priority" class="font-bold">Priority</label>
+                <select required id="priority" class="border border-black-500 rounded-md p-1 pl-2">
+                    <option value="select">Select Priority</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+                <p id="errorPriorityMessage" class="text-red-500 mb-2 text-sm hidden">Invalid Date!!!</p>
+                <button type="button" class="submitBtn text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-green-200 dark:focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-5">Add New Task</button>
+            </form>
+        </div>
+        <div>
+            <h2 class="font-bold text-2xl mb-5">Task List</h2>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left rtl:text-right">
+                    <thead class="text-xs text-black bg-gray-100">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">TASK NAME</th>
+                            <th scope="col" class="px-6 py-3">DUE DATE</th>
+                            <th scope="col" class="px-6 py-3">PRIORITY</th>
+                            <th scope="col" class="px-6 py-3">STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskList"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="./js/index.js"></script>
+</body>
+</html>
