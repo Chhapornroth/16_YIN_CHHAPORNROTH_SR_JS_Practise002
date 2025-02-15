@@ -76,7 +76,7 @@ submitButton.addEventListener("click",()=> {
                     <td class="px-6 py-4 font-medium">${tasks[i].dueDate}</td>
                     <td class="px-6 py-4 font-medium ${color}">${tasks[i].priority}</td>
                     <td class="px-6 py-4">
-                        <button type="button" id="statusBtn" class="text-white bg-[#FF9119] font-medium rounded-lg text-sm px-5 py-2 text-center inline-flex items-center">Pending</button>
+                        <button type="button" onclick="statusBtn(${i})" class="statusBtn text-white bg-yellow-500 font-medium rounded-lg text-sm px-5 py-2 text-center inline-flex items-center">Pending</button>
                     </td>
                  </tr>
             `;
@@ -84,9 +84,15 @@ submitButton.addEventListener("click",()=> {
     }
 });
 
-let buttonStatus = document.getElementById("buttonStatus");
-buttonStatus.addEventListener("click", () => {
-    if(buttonStatus.textContent === "Pending"){
-        buttonStatus.innerHTML = "Completed";
+function statusBtn(index){
+    const button = document.querySelectorAll(".statusBtn")[index];
+    if (button.innerHTML === "Pending") {
+        button.innerHTML = "Completed";
+        button.classList.remove("bg-yellow-500");
+        button.classList.add("bg-green-500");
+    }else {
+        button.innerHTML = "Pending";
+        button.classList.remove("bg-green-500");
+        button.classList.add("bg-yellow-500");
     }
-});
+}
